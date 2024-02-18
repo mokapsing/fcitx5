@@ -492,6 +492,9 @@ void InputWindow::paint(cairo_t *cr, unsigned int width, unsigned int height,
     pango_font_metrics_unref(metrics);
     fontHeight = PANGO_PIXELS(fontHeight);
 
+    cairo_stroke(cr);
+    cairo_restore(cr);
+
     size_t currentHeight = 0;
     int w, h;
     auto extraW = *textMargin.marginLeft + *textMargin.marginRight;
@@ -507,6 +510,7 @@ void InputWindow::paint(cairo_t *cr, unsigned int width, unsigned int height,
 
             cairo_save(cr);
             cairo_set_line_width(cr, 2);
+            cairoSetSourceColor(cr, theme.inputPanelBackground());
             auto offsetX = pango_units_to_double(pos.x);
             cairo_move_to(cr, *textMargin.marginLeft + offsetX + 1,
                           *textMargin.marginTop);
