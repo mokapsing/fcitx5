@@ -59,7 +59,7 @@ void TestUI::printInputPanel(InputContext *inputContext) {
     auto auxDown = instance_->outputFilter(inputContext, inputPanel.auxDown());
     auto cursor = preedit.cursor();
     if (cursor >= 0) {
-        preeditString.insert(cursor, "|");
+        preeditString.insert(cursor, "‏");
     }
     FCITX_ASSERT(utf8::validate(preeditString));
     std::cerr << "Preedit: " << preeditString << std::endl;
