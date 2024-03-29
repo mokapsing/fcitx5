@@ -504,7 +504,7 @@ void InputWindow::paint(cairo_t *cr, unsigned int width, unsigned int height,
                      *textMargin.marginTop);
         pango_layout_get_pixel_size(upperLayout_.get(), &w, &h);
         PangoRectangle pos;
-        if (cursor_ >= 0) {
+        if (cursor_ >= 0 && false) { //disable cursor paint 20240329
             pango_layout_get_cursor_pos(upperLayout_.get(), cursor_, &pos,
                                         nullptr);
 
